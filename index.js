@@ -30,7 +30,7 @@ mongoose.connection.on("disconnected",() =>{
     console.log("mongo db is disconnected");
 })
 // Use this code where you are connecting mongoose. This code will definitely work.
-mongoose.connect(process.env.MONGO,{ useNewUrlParser: true, useUnifiedTopology: true, writeConcern: { w: 'majority', j: true, wtimeout: 1000 } })
+mongoose.connect(process.env.MONGO || 'mongodb+srv://rifat:rifat@cluster0.1h7phkd.mongodb.net/booking_website?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true, writeConcern: { w: 'majority', j: true, wtimeout: 1000 } })
 
 
 //middleware
@@ -57,3 +57,7 @@ app.listen(process.env.PORT || 5000,() =>{
     connect();
     console.log('connected  to server!');
 })
+// app.listen(8080,() =>{
+//     connect();
+//     console.log('connected  to server!');
+// })
